@@ -1,0 +1,16 @@
+@CHARSET "ISO-8859-1";
+
+
+div.content {
+	background-image: url("../img/building.jpg");
+	background-repeat: no-repeat;	
+	background-position: top;
+	padding-top: 0;
+	margin-top: 0;
+	height: 1200px;
+	width: 1200px;
+}
+
+div.butterfly {
+	margin-top: 500px;
+}

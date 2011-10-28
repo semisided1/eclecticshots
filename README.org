@@ -39,3 +39,6 @@ start date: October 26, 2011
 
 I am doing this site for free because I am just learning a lot of this stuff and I need a portfolio. If you are a student feel free to chip in or provide suggestions as to what is working and not.
 
+** GitHub Page
+
+<a href="http://semisided1.github.com/eclecticshots">http://semisided1.github.com/eclecticshots</a>

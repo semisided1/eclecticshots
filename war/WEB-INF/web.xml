@@ -13,6 +13,71 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/eclecticshots</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>ec.jsp</welcome-file>
 	</welcome-file-list>
+	
+
+		<icon>
+		<small-icon>/favicon.ico</small-icon>
+		</icon>
+
+		<servlet>
+		<servlet-name>CreateNewECPhoto</servlet-name>
+		<servlet-class>ca.eclecticshots.ServletCreateECPhoto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreateNewECPhoto</servlet-name>
+		<url-pattern>/newecp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RemoveECPhoto</servlet-name>
+		<servlet-class>ca.eclecticshots.ServletRemoveECPhoto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RemoveECPhoto</servlet-name>
+		<url-pattern>/delecp</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>CreateNewECAlbum</servlet-name>
+		<servlet-class>ca.eclecticshots.ServletCreateECAlbum</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreateNewECAlbum</servlet-name>
+		<url-pattern>/neweca</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>RemoveECAlbum</servlet-name>
+		<servlet-class>ca.eclecticshots.ServletRemoveECAlbum</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RemoveECAlbum</servlet-name>
+		<url-pattern>/deleca</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>addurl</servlet-name>
+		<servlet-class>ca.eclecticshots.ServletAddurl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addurl</servlet-name>
+		<url-pattern>/addurl</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Delphotosinalbum</servlet-name>
+		<servlet-class>ca.eclecticshots.ServletDpia</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Delphotosinalbum</servlet-name>
+		<url-pattern>/dpia</url-pattern>
+	</servlet-mapping>
+
+
+	
+	
+	
+	
 </web-app>

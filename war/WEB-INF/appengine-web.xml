@@ -22,4 +22,7 @@
   		<include path="/img/butterfly.png"></include>
   		<include path="/fbook.html"></include>
   		<include path="/booty.html"></include>
+  		<include path="/img/architecture.jpg"></include>
+  		<include path="/favicon.ico"></include>
+  		<include path="/css/main.css"></include>
   	</static-files></appengine-web-app>

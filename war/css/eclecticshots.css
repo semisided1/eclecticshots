@@ -26,7 +26,10 @@ img {
 	margin: 5px;
 	padding: 5px;
 }
-
+img.bigshot {
+	padding-top: 100px;
+	
+}
 /*
 img.opac {
 filter:alpha(opacity=90);

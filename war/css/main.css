@@ -1,0 +1,137 @@
+
+
+/*
+normalize the style with yahoo reset css
+YUI 2: Reset CSS
+*/
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img { 
+	border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym { 
+	border:0;
+}
+
+/*
+override the normalized style with our styles
+see zvon.org for reference
+and w3schools for tutorial on css
+*/
+
+h1, hr{
+	clear: both;
+	
+	}
+a {
+	text-decoration: none;
+	color: #009ACD;
+	
+}
+a:hover {color:green}  /* mouse over link */
+
+body {
+	font-family: arial, geneva;
+	font-size: 15px;
+	margin-left: 2cm;
+	margin-top: 1.5cm;
+	margin-bottom:5cm;
+     background-color: #D1EEEE;
+     color: black;
+
+}
+div.smallfont {
+	font-size: 10px;
+	clear: both;
+}
+
+div.flowlayout,td,th{	
+	margin : 10px;
+	float: left;
+	overflow:hidden;
+}
+
+img.cardimg {
+	float:none;
+	clear:both;
+}
+img.butterfly {
+	float:right;
+	clear:none;
+}
+
+iframe.slideshow {
+	float:right;
+	clear:none;
+}
+
+iframe.facebookbox {
+	float:right;
+	clear:none;
+}
+
+
+p {
+	width:50%;
+	padding-bottom: 1cm;
+}
+
+div.card{	
+//	outline-color : black;
+	outline-width : 0px;
+	outline-style: solid;
+ 	margin-bottom : .65cm;
+	margin-right:.5cm;
+	margin-top: .1cm;
+	float: left;
+	overflow:hidden;
+	overflow: hidden;
+	background-color: #8B8378;
+	
+//	overflow: auto;
+-moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+-goog-ms-box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+//background: white;
+padding: 5px;
+	
+}
+
+div.cardhead {
+	font-weight : bold;	
+	background-color: #8B8378;
+}
+
+div.cardbody {
+	margin-left: .1cm;
+	// background-color: black;
+}
+
+div.page-break { 
+	display:block;  page-break-before:always 
+}

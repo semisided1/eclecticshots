@@ -54,14 +54,14 @@
 				</p>
 
 			</div>
-			<div class="span10">
+			<div class="span12 offset2">
 
 				<%
 					int row = 0;
 					for (ECAlbum ecalbum : ecalbums) {
 						row++;
 
-						if (row % 2 == 1) {
+						if (row % 3 == 1) {
 				%>
 				<div class="row ">
 					<!-- row  -->
@@ -77,7 +77,7 @@
 
 					</div>
 					<%
-						if (row % 2 == 0) {
+						if (row % 3 == 0) {
 					%>
 				</div>
 				<!-- end row  -->

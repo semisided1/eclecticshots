@@ -61,14 +61,16 @@
 <link
 	href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css"
 	rel="stylesheet">
-<link href="./css/eclecticshots.css" rel="stylesheet">
+<!-- <link href="./css/eclecticshots.css" rel="stylesheet"> -->
+<style>@import "/css/eclecticshots.css";</style>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title><%=eca.getName()%></title>
 </head>
 <body>
 	<div class="content">
 		<div class="row">
-			<div class="span3 offset1">
+			<div class="span4 offset1">
 				<a href="/">
 					<h1>Eclectic Shots</h1>
 				</a>
@@ -86,7 +88,7 @@
 					}
 				%>
 			</div>
-			<div class="span9">
+			<div class="span12 offset2">
 				<img class="bigshot" src="<%=photos.get(i).picasaSizeURL(s)%>" />
 				<br />
 			</div>

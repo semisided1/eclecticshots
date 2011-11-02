@@ -22,7 +22,7 @@
 
 	String paramS = request.getParameter("s");
 	if (paramS == null)
-		paramS = "500"; //default size
+		paramS = "700"; //default size
 	int s = 0;
 	s = 0 + Integer.parseInt(paramS);
 	if (s < 200) {
@@ -70,7 +70,7 @@
 <body>
 	<div class="content">
 		<div class="row">
-			<div class="span4 offset1">
+			<div class="span3 offset1">
 				<a href="/">
 					<h1>Eclectic Shots</h1>
 				</a>
@@ -88,10 +88,12 @@
 					}
 				%>
 			</div>
-			<div class="span12 offset2">
+			<div class="span12 offset1">
 				<img class="bigshot" src="<%=photos.get(i).picasaSizeURL(s)%>" />
 				<br />
 			</div>
+			</div>
+			<div class="row">
 			<div class="span2">
 				<%
 					if (t != 0) {
@@ -113,7 +115,7 @@
 				<%
 					} else {
 				%>
-				<a href="eca.jsp?name=<%=eca.getName()%>&i=<%=i%>&t=10&s=<%=s%>">Slideshow
+				<a href="eca.jsp?name=<%=eca.getName()%>&i=<%=i%>&t=7&s=<%=s%>">Slideshow
 					Start</a>
 				<%
 					}

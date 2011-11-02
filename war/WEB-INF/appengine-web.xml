@@ -25,4 +25,7 @@
   		<include path="/img/architecture.jpg"></include>
   		<include path="/favicon.ico"></include>
   		<include path="/css/main.css"></include>
+  		<include path="/about.html"></include>
+  		
+  		
   	</static-files></appengine-web-app>

@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="iso-8859-1"?><%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%><%@ page import="ca.eclecticshots.Dao"%><%@ page import="java.util.List"%><%@ page import="ca.eclecticshots.model.ECAlbum"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="ca.eclecticshots.Dao"%>
+<%@ page import="java.util.List"%>
+<%@ page import="ca.eclecticshots.model.ECAlbum"%>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
@@ -19,8 +23,8 @@
 %><div class="content">
 <div class="row">
 <div class="span3 offset1">
-<h1>Eclectic Shots</h1>
-<h2>for all your photographic needs</h2>
+<p class="heading">	Eclectic Shots</p>
+<p class="heading2" >for all your photographic needs</p>
 <img src="../img/shelly.jpg" alt="Shelly Priest" />
 <p>
 <i>Shelly - &quot;I can capture the essence of your special	moments&quot;</i>
@@ -37,9 +41,9 @@
 					int row = 0;
 					for (ECAlbum ecalbum : ecalbums) {
 						row++;
-%><li><a href="eca.jsp?name=<%=ecalbum.getName()%>"> 
-<img src="<%=ecalbum.getCover()%>" class="opac"	alt="<%=ecalbum.getName() + " " + ecalbum.getDescription()%>" />
-<%=ecalbum.getName()%></a></li><%
+%><li><a href="eca.jsp?name=<%=ecalbum.getName()%>">
+<img src="<%=ecalbum.getCover()%>" class="opac"	alt="<%=ecalbum.getName() + " " + ecalbum.getDescription()%>" >
+ <%=ecalbum.getName()%></a></li><%
 					}
 %></ul>
 </div>

@@ -17,11 +17,17 @@
 	if (name == null) {
 		response.sendRedirect("/");
 	}
+	
+	ECAlbum eca = Dao.INSTANCE.getECAlbumbyName(name);
+	List<ECPhoto> photos = Dao.INSTANCE.getECPhotos(eca.getName());
+	
 	String paramI = request.getParameter("ij");
 	if (paramI == null)
 		paramI = "0";
 	int i = 0;
 	i = 0 + Integer.parseInt(paramI);
+	if (i>= photos.size()) i = i % photos.size();
+	
 	ECPhoto photo = null;
 
 	String paramS = request.getParameter("s");
@@ -45,37 +51,42 @@
 		if (t < 2)
 			t = 2; // 2 second min
 
-	ECAlbum eca = Dao.INSTANCE.getECAlbumbyName(name);
-	List<ECPhoto> photos = Dao.INSTANCE.getECPhotos(eca.getName());
-	int len = photos.size();
-
+	
 	if (t != 0) {
 %>
-<meta http-equiv="refresh" content="<%=t%>;url=eca.jsp?name=<%=eca.getName()%>&amp;ij=<%=(i + 1) % len%>&amp;t=<%=t%>&amp;s=<%=s%>"><%
+<meta http-equiv="refresh" content="<%=t%>;url=eca.jsp?name=<%=eca.getName()%>&amp;ij=<%=(i + 1)%>&amp;t=<%=t%>&amp;s=<%=s%>"><%
 }%><title><%=eca.getName()%></title></head>
 <body> <div class="content">	<div class="row">
 <div class="span3 offset1">
-<a href="/" class="heading">
-				Eclectic Shots
-				</a>
-				<h2><%=eca.getName()%></h2>
-
+<p class="heading">
+<a href="/">Eclectic Shots</a>
+</p>
+				
+				<p class="heading2"><%=eca.getName()%></p>
+				
 				<%
-					for (int x = 0; x < len; x++) {
+				int first = i;
+					for (int x = 0; x < 5; x++) {
 						photo = photos.get(i);
 				%>
 				<a href="eca.jsp?name=<%=eca.getName()%>&amp;ij=<%=i%>&amp;s=<%=s%>">
 					<img src="<%=photo.getPhotourl()%>" alt="thumb" />
 				</a>
 				<%
-					i = (i + 1) % len;
+					i = (i + 1) % photos.size();
 					}
 				%>
+				<ul id="navlist">
+  <li id="home"><a href="eca.jsp?name=<%=eca.getName()%>&amp;ij=<%=i%>&amp;s=<%=s%>"></a></li>
+  
+</ul>
 			</div>
-			<div class="span12 offset1">
-				<img class="bigshot" src="<%=photos.get(i).picasaSizeURL(s)%>" alt="big shot"/> <br />
-			</div>
+			<div class="span1 emptypanel"> &nbsp; </div>
+			
+			<img class="bigshot" src="<%=photos.get(first).picasaSizeURL(s)%>" alt="big shot"/> <br />
+			
 		</div>
+		
 		<div class="row">
 			<div class="span2">
 				<%
@@ -99,7 +110,7 @@
 					} else {
 				%>
 				<a
-					href="eca.jsp?name=<%=eca.getName()%>&amp;ij=<%=i%>&amp;t=7&amp;s=<%=s%>">Slideshow
+					href="eca.jsp?name=<%=eca.getName()%>&amp;ij=<%=i%>&amp;t=4&amp;s=<%=s%>">Slideshow
 					Start</a>
 				<%
 					}

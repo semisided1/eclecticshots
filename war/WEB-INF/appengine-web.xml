@@ -17,7 +17,7 @@
   <static-files>
   	<include path="/css/eclecticshots.css"></include>
   	<include path="/img/building.jpg"></include>
-  	<include path="/img/wall.jpg"></include>
+  	<include path="/img/downblue.png"></include>
   		<include path="/img/shelly.jpg"></include>
   		<include path="/img/butterfly.png"></include>
   		<include path="/fbook.html"></include>
@@ -26,6 +26,5 @@
   		<include path="/favicon.ico"></include>
   		<include path="/css/main.css"></include>
   		<include path="/about.html"></include>
-  		
   		
   	</static-files></appengine-web-app>

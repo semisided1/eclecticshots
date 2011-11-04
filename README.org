@@ -1,18 +1,26 @@
-* Eclectic Shots
+* Eclectic Shots eclecticshots.com
 
-Is a website for a photographer that I am doing for free. I am a new web developer and need a portfolio.
+** User Features
 
-** Features
+- Pleasing look
+- Albums to view portfolio
+- Facebook widget to connect to facebook
+  
+** Admin Features
 
-- front page with a pleasing look
-- albums to view portfolio
-- facebook widget to connect to facebook
+- Google Apps to manage domain, email, docs etc.
+- Import from picasa albums
+- Authentication for administration
+- Database driven, no html coding for customer
+ 
 
 ** Technology
 
 - html, css
 - twitter bootstrap
-- servlets?
+- servlets / jsp
+- picasa album import
+- Google Appengine with Bigtable backend
 
 ** Tools
 
@@ -20,25 +28,40 @@ Is a website for a photographer that I am doing for free. I am a new web develop
 - Eclipse
 - git gui / github
 - Emacs
+- Google Apps
 
 ** URL
 
-development hosting: http://eclecticshots.appengine.com
-final destination: http://eclecticshots.ca
+development hosting: http://eclecticshotsv2.appengine.com
+final destination: http://eclecticshots.com
 
 ** Contact
 
-developer email: dirtslayer@gmail.com
-client email: shelly.priest@facebook.com
+developer email: dirtslayer@gmail.com, darrell@eclecticshots.com
+
+client email: shelly.priest@facebook.com, shelly@eclecticshots.com
 
 ** Dates
 
 start date: October 26, 2011
-
-** Disclaimer
-
-I am doing this site for free because I am just learning a lot of this stuff and I need a portfolio. If you are a student feel free to chip in or provide suggestions as to what is working and not.
+online date: November 1, 2011
 
 ** GitHub Page
 
 <a href="http://semisided1.github.com/eclecticshots">http://semisided1.github.com/eclecticshots</a>
+
+You can download this project in either zip or tar formats.
+http://github.com/semisided1/eclecticshots/zipball/master
+http://github.com/semisided1/eclecticshots/tarball/master
+
+You can also clone the project with Git by running:
+$ git clone git://github.com/semisided1/eclecticshots
+
+
+*** TODO admin console
+*** TODO valid xhtml
+*** TODO css editor from admin
+*** TODO tidy wordage
+*** TODO about page credits
+
+ 

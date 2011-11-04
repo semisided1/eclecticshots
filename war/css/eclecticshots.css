@@ -16,23 +16,12 @@ img.bigshot {
 	
 }
 
-a { color: white;}
-a:link {text-decoration: none;
-	color: white;
-	}
-a:HOVER { color:white;}
-a:VISITED {text-decoration: none;
-			border-style: none;
-			}
-a:ACTIVE {text-decoration: none;}
-a:AFTER {text-decoration: none;
-	border-style:none;
-	}
-
-
-h1 {color: white; text-shadow: #00274D 0.1em 0.1em 0.2em}
-
-
+a.heading, h1 {
+color: white;
+text-shadow: #00274D 0.1em 0.1em 0.2em;
+font-size: xx-large;
+font-weight: bold;
+}
 div.content {
 	background-image: url("../img/building.jpg");
 	background-repeat: no-repeat;	
@@ -41,7 +30,6 @@ div.content {
 	min-height: 1200px;
 	
 }
-
 div.emptypanel{
 	min-height:1200px;
 }

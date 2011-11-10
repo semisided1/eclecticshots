@@ -64,15 +64,10 @@ Resizing and uploading to online servers is done with Picasa.
 - start date: October 26, 2011
 - online date: November 1, 2011
 * Kudos
-- Shelly is a great customer! Though I chose the technology behind all of this
-stuff, she tried to understand the rationale behind the choices and saw that 
-it suited her needs right away.
-- Google - oh great and wonderful Google, the free hosting, free tools, free
-everything is so amazing. 
+- Shelly is a great customer! Though I chose the technology behind all of this stuff, she understood the rationale behind the choices and saw that it suited her needs right away.
+- Google - oh great and wonderful Google, the free hosting, free tools, free everything is so amazing. 
 - Linux of course. Though I could have done this just as easily using Windows, there is something about Linux that just make me happier as a developer
 - Marian Scorah - Instant feeback on layout and design 
-- Government of Canada - Though I am currently job searching, I am able to 
-spend this time on projects due to the Employment Insurance program.
-
+- Government of Canada - Though I am currently job searching, I am able to spend this time on projects due to the Employment Insurance program.
 
  

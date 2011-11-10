@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="ca.eclecticshots.Dao"%>
-<%@ page import="java.util.List"%>
-<%@ page import="ca.eclecticshots.model.ECAlbum"%>
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="ca.eclecticshots.Dao"%>
+<%@ page import="java.util.List"%>
+<%@ page import="ca.eclecticshots.model.ECAlbum"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 <meta name="title" content="Eclectic Shots"/>
@@ -36,13 +36,13 @@
 <a href="fbook.html">Facebook</a>
 </p>
 </div>
-<div class="span1 emptypanel"> &nbsp; </div>
+<div class="span1 emptypanel"> </div>
 <ul class="media-grid"><%
 					int row = 0;
 					for (ECAlbum ecalbum : ecalbums) {
 						row++;
 %><li><a href="eca.jsp?name=<%=ecalbum.getName()%>">
-<img src="<%=ecalbum.getCover()%>" class="opac"	alt="<%=ecalbum.getName() + " " + ecalbum.getDescription()%>" >
+<img src="<%=ecalbum.getCover()%>" class="opac"	alt="<%=ecalbum.getName() + " " + ecalbum.getDescription()%>" />
  <%=ecalbum.getName()%></a></li><%
 					}
 %></ul>
@@ -51,7 +51,7 @@
 <p>
 <a href="about.html">Eclectic Shots 2011</a>
 </p>
-<p>
+<p style="float: right;">
     <a href="http://validator.w3.org/check?uri=referer"><img
       src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
   </p>

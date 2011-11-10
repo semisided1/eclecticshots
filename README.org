@@ -1,67 +1,78 @@
-* Eclectic Shots eclecticshots.com
-
-** User Features
-
-- Pleasing look
-- Albums to view portfolio
-- Facebook widget to connect to facebook
-  
-** Admin Features
-
-- Google Apps to manage domain, email, docs etc.
-- Import from picasa albums
-- Authentication for administration
-- Database driven, no html coding for customer
- 
-
-** Technology
-
-- html, css
-- twitter bootstrap
-- servlets / jsp
-- picasa album import
-- Google Appengine with Bigtable backend
-
-** Tools
-
-- The Gimp
-- Eclipse
-- git gui / github
-- Emacs
-- Google Apps
-
-** URL
-
+* Eclectic Shots
+Eclectic Shots is a website created for Shelly. She required
+a page that would showcase her photography. Its requirements
+are that it be easy to update and organize. Also that it is 
+easy to use.
+* Contacts
+developer email: darrell@designr8.com
+client email: shelly@eclecticshots.com
+* URLs
 development hosting: http://eclecticshotsv2.appengine.com
 final destination: http://eclecticshots.com
+project description: http://semisided1.github.com/eclecticshots/
+source repository: http://github.com/semisided1/eclecticshots
+* User Features
+- Album browser
+- Adjustable image size
+- Slideshow with adjustable rate
+- Facebook widget to connect to facebook
+* Admin Features
+- Database driven, no html coding for customer
+- Import from picasa albums
+- Authentication for administration
+- Google Apps to manage domain and email
+- Support by darrell@designr8.com
+* Technology
+** valid xhtml and transitional html
+foundation of the site ensures that it is interoperable 
+(runs on different devices and operating systems)
+** servlets / jsp
+Back-end infrastructure, hosted by Google Appengine. 
+Uses Java Persistence Api (JPA) to manage data which 
+is stored in Google Bigtable.
+** css / twitter bootstrap
+Some front-end display code that makes it tidy, creating panels
+and image flow layout.
+** picasa album import
+Uses java.net to load all the images in a Picasa web album 
+with one click.
+** admin authentication
+Uses google to manage administration login. (appengine.api.users.UserService)
+** Facebook Social Plugin
+The like box, ties the site back to Facebook. Adds community features that
+are familiar.
+* Tools
+** Eclipse
+Eclipse with appengine plugin is a Java EE IDE. Manages all the project
+files and the deployment to Google Appengine.
+** Google Apps
+Domain managment tools. Used to set up the url eclecticshots.com and the
+email addresses for that domain. The domain name was transfered from
+godaddy.com
+** git and github
+Source code management is done locally and remotely with git. Most 
+of the heavy lifting is done with the command git gui, because
+I like fancy tools. The whole project was completed in about a week
+with source code control throughout. Source code control makes a
+coder feel fearless because it provides the undo features.
+** Emacs
+Text editor for code scraps and notes. Org mode is used to create this file.
+** Picasa and The Gimp
+Some images had to be manipulated for the design with The Gimp.
+Resizing and uploading to online servers is done with Picasa. 
+* Dates
+- start date: October 26, 2011
+- online date: November 1, 2011
+* Kudos
+- Shelly is a great customer! Though I chose the technology behind all of this
+stuff, she tried to understand the rationale behind the choices and saw that 
+it suited her needs right away.
+- Google - oh great and wonderful Google, the free hosting, free tools, free
+everything is so amazing. 
+- Linux of course. Though I could have done this just as easily using Windows, there is something about Linux that just make me happier as a developer
+- Marian Scorah - Instant feeback on layout and design 
+- Government of Canada - Though I am currently job searching, I am able to 
+spend this time on projects due to the Employment Insurance program.
 
-** Contact
-
-developer email: dirtslayer@gmail.com, darrell@eclecticshots.com
-
-client email: shelly.priest@facebook.com, shelly@eclecticshots.com
-
-** Dates
-
-start date: October 26, 2011
-online date: November 1, 2011
-
-** GitHub Page
-
-<a href="http://semisided1.github.com/eclecticshots">http://semisided1.github.com/eclecticshots</a>
-
-You can download this project in either zip or tar formats.
-http://github.com/semisided1/eclecticshots/zipball/master
-http://github.com/semisided1/eclecticshots/tarball/master
-
-You can also clone the project with Git by running:
-$ git clone git://github.com/semisided1/eclecticshots
-
-
-*** TODO admin console
-*** TODO valid xhtml
-*** TODO css editor from admin
-*** TODO tidy wordage
-*** TODO about page credits
 
  

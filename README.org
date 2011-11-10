@@ -4,8 +4,8 @@ a page that would showcase her photography. Its requirements
 are that it be easy to update and organize. Also that it is 
 easy to use.
 * Contacts
-developer email: darrell@designr8.com
-client email: shelly@eclecticshots.com
+- developer email: darrell@designr8.com
+- client email: shelly@eclecticshots.com
 * URLs
 - development hosting: http://eclecticshotsv2.appengine.com
 - final destination: http://eclecticshots.com

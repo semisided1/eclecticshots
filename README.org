@@ -7,10 +7,10 @@ easy to use.
 - developer email: darrell@designr8.com
 - client email: shelly@eclecticshots.com
 * URLs
-- development hosting: http://eclecticshotsv2.appengine.com
-- final destination: http://eclecticshots.com
-- project description: http://semisided1.github.com/eclecticshots/
-- source repository: http://github.com/semisided1/eclecticshots
+- development hosting: [[http://eclecticshotsv2.appspot.com]]
+- final destination: [[http://eclecticshots.com]]
+- project description: [[http://semisided1.github.com/eclecticshots/]]
+- source repository: [[http://github.com/semisided1/eclecticshots]]
 * User Features
 - Album browser
 - Adjustable image size

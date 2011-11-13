@@ -3,9 +3,8 @@ package ca.eclecticshots;
 import ca.eclecticshots.model.*;
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.persistence.*;
-
+@SuppressWarnings("unchecked")
 public enum Dao {
 	INSTANCE;
 
@@ -47,19 +46,20 @@ public enum Dao {
 		 	ECAlbum e = (ECAlbum) q.getSingleResult();
 			return e;
 	 }
-		
+	
+	
 	public List<ECAlbum> listECAlbums() {
 		EntityManager em = EMFService.get().createEntityManager();
 		// Read the existing entries
-		Query q = em.createQuery("select m from ECAlbum m");
+		Query q = em.createQuery("select m from ECAlbum m order by aorder");
 		List<ECAlbum> ECAlbums = q.getResultList();
 		return ECAlbums;
 	}
 
-	public void addECAlbum(String name, String cover, String description ) {
+	public void addECAlbum(String name, String cover, String description, String order ) {
 		synchronized (this) {
 			EntityManager em = EMFService.get().createEntityManager();
-			ECAlbum ecalbum = new ECAlbum(  name, cover, description );
+			ECAlbum ecalbum = new ECAlbum(  name, cover, description, order );
 			em.persist(ecalbum);
 			em.close();
 		}

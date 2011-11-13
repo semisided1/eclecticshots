@@ -61,7 +61,7 @@ Albums
 
 <table>
 	<tr>
-		<th>id</th>
+		<th>order</th>
 		<th>name</th>
 		<th>cover</th>
 		<th>description</th>
@@ -69,9 +69,11 @@ Albums
 
 	<%for (ECAlbum ecalbum : ecalbums ){ %>
 	<tr>
+		<td><%= ecalbum.getAorder() %></td>
 		<td><%= ecalbum.getName() %></td>
 		<td><%= ecalbum.getCover() %></td>
 		<td><%= ecalbum.getDescription() %></td>
+		
 		<td><a class="deleca" href="/deleca?id=<%=ecalbum.getId()%>">del</a>
 		</td>
 	</tr>
@@ -91,6 +93,10 @@ Albums
 	<!--Email <%= user.getEmail() %> -->
 	<form action="/neweca" method="post" accept-charset="utf-8">
 		<table>
+			<tr>
+				<td><label for="aorder">Order </label></td>
+				<td><input type="text" name="aorder" id="aorder" size="65" /></td>
+			</tr>
 			<tr>
 				<td><label for="name">Name </label></td>
 				<td><input type="text" name="name" id="name" size="65" /></td>

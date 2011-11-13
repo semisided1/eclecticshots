@@ -40,9 +40,10 @@ public class ServletCreateECAlbum extends HttpServlet {
 		String name = checkNull(req.getParameter("name"));
 		String cover = checkNull(req.getParameter("cover"));
 		String description = checkNull(req.getParameter("description"));
+		String aorder = checkNull(req.getParameter("aorder"));
+				
 		
-		
-		Dao.INSTANCE.addECAlbum(name,cover,description);
+		Dao.INSTANCE.addECAlbum(name,cover,description,aorder);
 		resp.sendRedirect("/ECAlbumApplication.jsp");
 	}
 

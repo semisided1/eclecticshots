@@ -21,12 +21,14 @@ public class ECAlbum {
 	private String name;
 	private String cover;
 	private String description;
+	private String aorder;
 	
 	
-	public ECAlbum(String name, String cover, String description) {
+	public ECAlbum(String name, String cover, String description, String aorder) {
 		this.name = name;
 		this.cover = cover;
 		this.description = description;
+		this.aorder = aorder;
 	}
 	
 	public String toString(){
@@ -53,6 +55,16 @@ public class ECAlbum {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getAorder() {
+		return this.aorder;
+	}
+
+	public void setAorder(String o) {
+		this.aorder = o;
+	}
+
+	
 	// cover title
 	public String getCover() {
 		return cover;

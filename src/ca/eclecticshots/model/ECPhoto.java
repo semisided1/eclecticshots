@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import ca.eclecticshots.Dao;
-
 /**
  * Model class which will store the Photo Items
  * 

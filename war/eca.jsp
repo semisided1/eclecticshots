@@ -83,7 +83,7 @@
 			</div>
 			<div class="span1 emptypanel"> &nbsp; </div>
 			
-			<img class="bigshot" src="<%=photos.get(first).picasaSizeURL(s)%>" alt="big shot"/> <br />
+			<img class="bigshot" src="<%=photos.get(first).picasaSizeURL(s)%>" alt=""/> <br />
 			
 		</div>
 		

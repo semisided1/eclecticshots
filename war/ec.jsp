@@ -25,7 +25,7 @@
 <div class="span3 offset1">
 <p class="heading">	Eclectic Shots</p>
 <p class="heading2" >for all your photographic needs</p>
-<img src="../img/shelly.jpg" alt="Shelly Priest" />
+<img src="http://lh3.googleusercontent.com/-o4R0sh8b7GY/Ttghzh2IKPI/AAAAAAAAAzs/p9XuS5pSh8Q/s200/_IGP0060%252520PPT%252520OL%2525205x7%252520web%252520%2525282%252529.jpg" alt="Shelly Priest" />
 <p>
 <i>Shelly - &quot;I can capture the essence of your special	moments&quot;</i>
 </p>

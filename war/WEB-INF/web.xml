@@ -21,6 +21,17 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<small-icon>/favicon.ico</small-icon>
 		</icon>
 
+
+		<servlet>
+		<servlet-name>PicasaImport</servlet-name>
+		<servlet-class>ca.eclecticshots.PicasaImportServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PicasaImport</servlet-name>
+		<url-pattern>/picasaimport</url-pattern>
+	</servlet-mapping>
+
+
 		<servlet>
 		<servlet-name>CreateNewECPhoto</servlet-name>
 		<servlet-class>ca.eclecticshots.ServletCreateECPhoto</servlet-class>

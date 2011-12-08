@@ -21,6 +21,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<small-icon>/favicon.ico</small-icon>
 		</icon>
 
+	<servlet>
+		<servlet-name>wait</servlet-name>
+		<servlet-class>ca.eclecticshots.wait</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>wait</servlet-name>
+		<url-pattern>/wait</url-pattern>
+	</servlet-mapping>
 
 		<servlet>
 		<servlet-name>PicasaImport</servlet-name>
@@ -30,6 +38,25 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>PicasaImport</servlet-name>
 		<url-pattern>/picasaimport</url-pattern>
 	</servlet-mapping>
+
+<servlet>
+		<servlet-name>Order</servlet-name>
+		<servlet-class>ca.eclecticshots.OrderServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Order</servlet-name>
+		<url-pattern>/order</url-pattern>
+	</servlet-mapping>
+
+<servlet>
+		<servlet-name>Delete</servlet-name>
+		<servlet-class>ca.eclecticshots.DeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Delete</servlet-name>
+		<url-pattern>/cascade</url-pattern>
+	</servlet-mapping>
+
 
 
 		<servlet>

@@ -42,7 +42,7 @@
 					for (ECAlbum ecalbum : ecalbums) {
 						row++;
 %><li><a href="eca.jsp?name=<%=ecalbum.getName()%>">
-<img src="<%=ecalbum.getCover()%>" class="opac"	alt="<%=ecalbum.getName() + " " + ecalbum.getDescription()%>" />
+<img src="<%=ecalbum.getCoverurl()%>" class="opac"	alt="<%=ecalbum.getName() %>" />
  <%=ecalbum.getName()%></a></li><%
 					}
 %></ul>

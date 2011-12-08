@@ -19,27 +19,45 @@ public class ECAlbum {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String cover;
-	private String description;
+	private String coverurl;
+	private String picasaurl;
+	private String feedurl;
 	private String aorder;
 	
 	
-	public ECAlbum(String name, String cover, String description, String aorder) {
+	public ECAlbum(String name, String coverurl, String picasaurl, String feedurl, String aorder) {
 		this.name = name;
-		this.cover = cover;
-		this.description = description;
+		this.coverurl = coverurl;
+		this.picasaurl = picasaurl;
+		this.feedurl = feedurl;
 		this.aorder = aorder;
 	}
 	
 	public String toString(){
 		String out = "<ecalbum><id>" + this.id + "</id>" +
 		"<name>" + this.name + "</name>" + 
-		"<cover>" + this.cover + "</cover>" +
-		"<description>" + this.description + "</description>" +
+		"<coverurl>" + this.coverurl + "</coverurl>" +
+		"<picasaurl>" + this.picasaurl + "</picasaurl>" +
+		"<feedurl>" + this.feedurl + "</feedurl>" +
 		"</ecalbum>";
 		return out;
 	}
+
+	public String getPicasaurl() {
+		return this.picasaurl;
+	}
 	
+	public void setPicasaurl(String url) {
+		this.picasaurl = url;
+	}
+
+	public String getFeedurl() {
+		return this.feedurl;
+	}
+	
+	public void setFeedurl(String url) {
+		this.feedurl = url;
+	}
 	
 	public void setId(Long id) {
 		this.id = id;
@@ -64,22 +82,12 @@ public class ECAlbum {
 		this.aorder = o;
 	}
 
-	
-	// cover title
-	public String getCover() {
-		return cover;
+	public String getCoverurl() {
+		return coverurl;
 	}
 
-	public void setCover(String cover){
-		this.cover = cover;
-	}
-	
-	public String getDescription() {
-		return this.description;
-	}
-	
-	public void setDescription(String desc) {
-		this.description = desc;
+	public void setCoverurl(String url){
+		this.coverurl = url;
 	}
 	
 	

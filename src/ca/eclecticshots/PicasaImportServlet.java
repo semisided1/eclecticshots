@@ -1,6 +1,7 @@
 package ca.eclecticshots;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.List;
 
@@ -20,15 +21,28 @@ import com.google.gdata.data.photos.AlbumFeed;
 import com.google.gdata.data.photos.PhotoEntry;
 import com.google.gdata.data.photos.GphotoEntry;
 
+import ca.eclecticshots.Dao;
+import java.util.List;
+import ca.eclecticshots.model.ECAlbum;
 
 
 @SuppressWarnings("serial")
 public class PicasaImportServlet extends HttpServlet {
+	
+	
+	PrintWriter out = null;
+	
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		resp.setContentType("text/html");
+		synchronized (this) {
 		
-		resp.getWriter().println("<html><head><title>Picasa Import</title></head></html>");
+		resp.setContentType("text/html");
+		out = resp.getWriter();
+		out.println("<html><head><title>Picasa Import</title><style>" +
+				"table{	border-collapse:collapse;}" +
+				"td{border: 1px solid black;" +
+				"padding:20px;}" +
+				"</style></head></html>");
 		
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
@@ -37,9 +51,14 @@ public class PicasaImportServlet extends HttpServlet {
 
 		if (user == null) {
 			// resp.sendRedirect("/");
-			resp.getWriter().print("<body><a href=\"");
-			resp.getWriter().print(userService.createLoginURL("/picasaimport"));
-			resp.getWriter().print("\"> login </a></body></html>");
+			out.print("<body>");
+			
+			// add about eclectic shots stuff here
+			
+			
+			out.print("<a href=\"");
+			out.print(userService.createLoginURL("/picasaimport"));
+			out.print("\"> login to manage site </a></body></html>");
 			return;
 		}
 
@@ -47,16 +66,50 @@ public class PicasaImportServlet extends HttpServlet {
 		if ( 0 == user.getEmail().compareTo("spriestphoto@gmail.com") ) lock = false;
 
 		if (lock) {
-			resp.getWriter().print("<body><a href=\"");
-			resp.getWriter().print(userService.createLogoutURL("/picasaimport"));
-			resp.getWriter().print("\"> logout </a></body></html>");
+			out.print("<body><a href=\"");
+			out.print(userService.createLogoutURL("/picasaimport"));
+			out.print("\">logout </a></body></html>");
 			return;
 		}
 		
 		//album_feed = 'http://picasaweb.google.com/data/feed/api/user/' . $user . '?v=2';
 		//$photo_feed = 'http://picasaweb.google.com/data/feed/api/user/' . $user . '/albumid/'
 		
+		resp.getWriter().println("<h1>current albums</h1>");
+		Dao dao = Dao.INSTANCE;
+		List<ECAlbum> ecalbums = null;
+		ecalbums = dao.listECAlbums();
+		int row = 0;
+		int last = ecalbums.size();
+		out.println("<table><tr><td>Album Name</td><td colspan=\"3\"> Order </td><td colspan=\"2\">Manage</td> <td>link</td><td>picasa</td></tr>");
+		for (ECAlbum ecalbum : ecalbums) {
+			row++;
+			out.println("<tr><td>");
+			out.println("<b>" + ecalbum.getName() + "</b>");
+			out.println("</td><td>");
+			out.println( ecalbum.getAorder());
+			out.println("</td><td>");
+			if (row!=1) {
+				out.println("<a href=\"order?dir=up&amp;album=" + ecalbum.getId() + "\"> up </a> ");
+			}
+			out.println("</td><td>");
+			if (row!=last) {
+				out.println("<a href=\"order?dir=down&amp;album=" + ecalbum.getId() + "\"> down </a> ");
+			}
+			out.println("</td><td>");
+			out.println("<a href=\"cascade?id=" + ecalbum.getId() + "\"> del </a> ");
+			out.println("</td><td>");
+			out.print("<a href=\"update?id=" + ecalbum.getId() + "\"> update </a> ");
+			out.println("</td><td>");
+			out.println("<a href=\"/eca.jsp?name=" + ecalbum.getName() + "\"> album </a> ");
+			out.println("</td><td>");
+			
+			out.println("<a href=\"" + ecalbum.getPicasaurl() + "\"> picasa </a> ");
+			out.println("</td></tr>");
+		}
+		out.println("</table>");
 		
+		out.println("<h1>available picasa albums: </h1>");
 		PicasawebService client = new PicasawebService("picasaimpr8.appspot.com");
 		String urlprefix = "http://picasaweb.google.com/data/feed/api/user/";
 		String urlstr = urlprefix + "spriestphoto@gmail.com" + "?v=2"; 
@@ -65,9 +118,8 @@ public class PicasaImportServlet extends HttpServlet {
 		try {
 			userFeed =  client.getFeed(albumUrl, UserFeed.class);
 		} catch (Exception e) {
-			e.printStackTrace(resp.getWriter());
+			e.printStackTrace(out);
 		}
-		
 		
 		
 		List<GphotoEntry> entries = userFeed.getEntries();	
@@ -79,70 +131,69 @@ public class PicasaImportServlet extends HttpServlet {
 				e.printStackTrace(resp.getWriter());
 			}
 			if (album instanceof AlbumEntry) {
-
-				resp.getWriter().println("<p>" + album.getTitle().getPlainText() + "</p>");   
-
-				// get the photo feed url from the album feed
-				String feedHref = null;
-				try {
-					feedHref = getLinkByRel(album.getLinks(), Link.Rel.FEED);
-				} catch (Exception e) {
-					e.printStackTrace(resp.getWriter());
-				}
-
-				// make another request with the same gdata client, this time for the photos (feedHref)
-				URL photosUrl = new URL(feedHref);	
-				AlbumFeed albumFeed = null;
-				try {
-					albumFeed = client.getFeed(photosUrl, AlbumFeed.class);
-				} catch ( Exception e) {
-					e.printStackTrace(resp.getWriter());
-				}
-
-				List<GphotoEntry> photoentries = albumFeed.getEntries();
-
-				for (GphotoEntry photoentry : photoentries) {
-					GphotoEntry photo = null;
-					try {
-						photo = photoentry.getAdaptedEntry();
-					} catch (Exception e) {
-						e.printStackTrace(resp.getWriter());
-					}
-					if (photo instanceof PhotoEntry) {
-						List<MediaContent> mc = ((PhotoEntry) photo).getMediaContents();
-						for ( MediaContent m: mc ) {
-							// show the url of the photo
-							//resp.getWriter().println("<p> mediacontent.url: " +  m.getUrl() + "</p>");
-							int i,j;
-							String f,g,thumburl;
-							
-						
-								i = m.getUrl().lastIndexOf('/');
-								f = m.getUrl().substring(0,i);
-								g = m.getUrl().substring(i);
-								thumburl = f + "/s100" + g;
-							//resp.getWriter().println("<p> thumburl: " + thumburl + "</p>");
-								resp.getWriter().println("<img src=\"" + thumburl + "\"/>");	
-						}
-
-					}
-				}
-			} 
+				// if album entry not in current
+				// create a form to add the album into current
+				if ( isin((AlbumEntry)album,ecalbums) == true) continue;
+				addform(out,(AlbumEntry)album,last);
+			}
 		}
 		
+		java.util.Date d = new java.util.Date();
 		
+		resp.getWriter().println(d + "</body></html>");
 		
-		
-		
-		
-		
-		
-		resp.getWriter().println("</body></html>");
-		
+		} // end sycronized
 	}// end doGet
 	
+		void addform(PrintWriter out, AlbumEntry a, int last) {
+			out.print("<form name=\"addalbum\" action=\"/neweca\" method=\"post\">");
+			out.print("<input type=\"hidden\" id=\"aorder\" name=\"aorder\" value=\""
+					+ (last + 1000) + "\"/>");
+			out.print("<input type=\"hidden\" id=\"name\" name=\"name\" value=\""
+					+ a.getName() + "\"/>");
+			out.print("<input type=\"hidden\" id=\"picasaurl\" name=\"picasaurl\" value=\""
+					+ a.getHtmlLink().getHref() + "\"/>");
+			out.print("<input type=\"hidden\" id=\"feedurl\" name=\"feedurl\" value=\""
+					+ a.getLinks().get(0).getHref() + "\"/>");
+			out.print("<input type=\"hidden\" id=\"coverurl\" name=\"coverurl\" value=\""
+					+ getcover(a) + "\"/>");
+			
+			out.print("<input type=\"submit\" value=\"add " + a.getName()  + "\" />");
+			out.println("</form>");
+		}
+		
+		boolean isin(AlbumEntry feedalbum, List<ECAlbum> currentalbums ) {
+			String feedname = feedalbum.getName(); 
+			boolean retval = false;
+			for (ECAlbum iter : currentalbums) {
+				if (iter.getName().compareTo(feedname) == 0 ) {
+					retval = true;
+					break;
+				}
+			}
+			return retval;
+		}
+		
+		String getcover(AlbumEntry feedalbum) {
+			String coverurl = null;
+			List<MediaContent> mc = feedalbum.getMediaContents();
+			for ( MediaContent m: mc ) {
+				coverurl = picasaSizeURL(m.getUrl(),200);
+				//coverurl = m.getUrl();
+				break;	
+			}
+			return coverurl;
+		}
 	
-	
+		public String picasaSizeURL(String photourl, int size) {
+			int i;
+			String f,g;
+			i = photourl.lastIndexOf('/');
+			f = photourl.substring(0,i);
+			g = photourl.substring(i);
+			return ( f + "/s" + size + g );		
+		}
+		/*	
 	public String getLinkByRel(List<Link> links, String relValue) {
 		for (Link link : links) {
 			if (relValue.equals(link.getRel())) {
@@ -151,4 +202,5 @@ public class PicasaImportServlet extends HttpServlet {
 		}
 		throw new IllegalArgumentException("Missing " + relValue + " link.");
 	}
+	*/
 }

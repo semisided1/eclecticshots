@@ -4,9 +4,10 @@ import javax.persistence.Persistence;
 
 public class EMFService {
 	private static final EntityManagerFactory emfInstance = Persistence
-			.createEntityManagerFactory("transactions-optional");
+			.createEntityManagerFactory("eclecticshots");
 
 	private EMFService() {
+		
 	}
 
 	public static EntityManagerFactory get() {

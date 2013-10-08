@@ -4,9 +4,9 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-	<servlet>
+<servlet>
 		<servlet-name>Eclecticshots</servlet-name>
-		<servlet-class>ca.eclecticshots.EclecticshotsServlet</servlet-class>
+		<servlet-class>com.eclecticshots.EclecticshotsServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Eclecticshots</servlet-name>
@@ -23,7 +23,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 	<servlet>
 		<servlet-name>wait</servlet-name>
-		<servlet-class>ca.eclecticshots.wait</servlet-class>
+		<servlet-class>com.eclecticshots.wait</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>wait</servlet-name>
@@ -32,7 +32,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 		<servlet>
 		<servlet-name>PicasaImport</servlet-name>
-		<servlet-class>ca.eclecticshots.PicasaImportServlet</servlet-class>
+		<servlet-class>com.eclecticshots.PicasaImportServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>PicasaImport</servlet-name>
@@ -41,7 +41,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 <servlet>
 		<servlet-name>Order</servlet-name>
-		<servlet-class>ca.eclecticshots.OrderServlet</servlet-class>
+		<servlet-class>com.eclecticshots.OrderServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Order</servlet-name>
@@ -50,7 +50,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 <servlet>
 		<servlet-name>Delete</servlet-name>
-		<servlet-class>ca.eclecticshots.DeleteServlet</servlet-class>
+		<servlet-class>com.eclecticshots.DeleteServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Delete</servlet-name>
@@ -61,7 +61,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 		<servlet>
 		<servlet-name>CreateNewECPhoto</servlet-name>
-		<servlet-class>ca.eclecticshots.ServletCreateECPhoto</servlet-class>
+		<servlet-class>com.eclecticshots.ServletCreateECPhoto</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateNewECPhoto</servlet-name>
@@ -70,7 +70,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>RemoveECPhoto</servlet-name>
-		<servlet-class>ca.eclecticshots.ServletRemoveECPhoto</servlet-class>
+		<servlet-class>com.eclecticshots.ServletRemoveECPhoto</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>RemoveECPhoto</servlet-name>
@@ -80,7 +80,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>CreateNewECAlbum</servlet-name>
-		<servlet-class>ca.eclecticshots.ServletCreateECAlbum</servlet-class>
+		<servlet-class>com.eclecticshots.ServletCreateECAlbum</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateNewECAlbum</servlet-name>
@@ -88,7 +88,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>RemoveECAlbum</servlet-name>
-		<servlet-class>ca.eclecticshots.ServletRemoveECAlbum</servlet-class>
+		<servlet-class>com.eclecticshots.ServletRemoveECAlbum</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>RemoveECAlbum</servlet-name>
@@ -97,7 +97,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>addurl</servlet-name>
-		<servlet-class>ca.eclecticshots.ServletAddurl</servlet-class>
+		<servlet-class>com.eclecticshots.ServletAddurl</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>addurl</servlet-name>
@@ -106,16 +106,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
 		<servlet-name>Delphotosinalbum</servlet-name>
-		<servlet-class>ca.eclecticshots.ServletDpia</servlet-class>
+		<servlet-class>com.eclecticshots.ServletDpia</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Delphotosinalbum</servlet-name>
 		<url-pattern>/dpia</url-pattern>
 	</servlet-mapping>
 
-
-	
-	
-	
-	
 </web-app>

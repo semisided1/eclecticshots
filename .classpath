@@ -3,8 +3,12 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/darrell/gdata/java/lib/gdata-core-1.0.jar"/>
-	<classpathentry kind="lib" path="/home/darrell/gdata/java/lib/gdata-photos-2.0.jar"/>
-	<classpathentry kind="lib" path="/home/darrell/gdata/java/deps/google-collect-1.0-rc1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gdata-client-1.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gdata-client-meta-1.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gdata-core-1.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gdata-media-1.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gdata-photos-2.0.jar" sourcepath="/home/dd/gdata/java/lib/gdata-photos-2.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gdata-photos-meta-2.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/guava-11.0.2.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

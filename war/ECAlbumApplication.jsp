@@ -5,8 +5,8 @@
 <%@ page import="com.google.appengine.api.users.User"%>
 <%@ page import="com.google.appengine.api.users.UserService"%>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory"%>
-<%@ page import="ca.eclecticshots.model.ECAlbum"%>
-<%@ page import="ca.eclecticshots.Dao"%>
+<%@ page import="com.eclecticshots.model.ECAlbum"%>
+<%@ page import="com.eclecticshots.Dao"%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -71,8 +71,8 @@ Albums
 	<tr>
 		<td><%= ecalbum.getAorder() %></td>
 		<td><%= ecalbum.getName() %></td>
-		<td><%= ecalbum.getCover() %></td>
-		<td><%= ecalbum.getDescription() %></td>
+		<td><%= ecalbum.getCoverurl() %></td>
+	
 		
 		<td><a class="deleca" href="/deleca?id=<%=ecalbum.getId()%>">del</a>
 		</td>

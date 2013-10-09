@@ -1,10 +1,17 @@
 package com.eclecticshots;
 
 import java.util.List;
+import java.util.LinkedList;
 
 import javax.persistence.*;
 
 import com.eclecticshots.model.*;
+
+import com.google.appengine.api.memcache.ErrorHandlers;
+import com.google.appengine.api.memcache.MemcacheService;
+import com.google.appengine.api.memcache.MemcacheServiceFactory;
+import java.util.logging.Level;
+
 
 @SuppressWarnings("unchecked")
 public enum Dao {
@@ -63,7 +70,9 @@ public enum Dao {
 	
 public void swap(String aid, String bid ) {
 	synchronized (this){
-		 
+		
+		invalidate("listAlbums");
+		
 		 EntityManager em = EMFService.get().createEntityManager();
 		 try{
 			 em.getTransaction().begin();
@@ -94,10 +103,35 @@ public void swap(String aid, String bid ) {
 			 System.out.println(e.getMessage());
 		 }
 	 }} 
+
+
+private void invalidate(String key) {		
+	MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
+    syncCache.setErrorHandler(ErrorHandlers.getConsistentLogAndContinue(Level.INFO));
+
+    if (key.compareTo("all") == 0) {
+    	syncCache.clearAll();
+    	return;
+    }
+    syncCache.delete(key);
+}	
 	
 public List<ECAlbum> listECAlbums() {
 	synchronized (this) {
 	
+		String key = "listAlbums";
+
+		LinkedList<ECAlbum> serList = null;	
+		
+		MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
+	    syncCache.setErrorHandler(ErrorHandlers.getConsistentLogAndContinue(Level.INFO));
+	    serList = (LinkedList<ECAlbum>) syncCache.get(key);
+		
+	    if (serList != null) {
+	        return serList;
+	      }
+		
+		
 	List<ECAlbum> ECAlbums = null;
 	EntityManager em = EMFService.get().createEntityManager();
 	try{
@@ -109,12 +143,23 @@ public List<ECAlbum> listECAlbums() {
 	} catch(Exception e){
 		System.out.println(e.getMessage());
 	}
+	
+	serList = new LinkedList<ECAlbum>();
+	for (ECAlbum a:ECAlbums) {
+		serList.add(a);
+	}
+	syncCache.put(key, serList); // populate cache
+	
+	
 	return ECAlbums;
 	}
 }
 
 public void addECAlbum(String name, String coverurl, String picasaurl,String feedurl, String aorder ) {
 	synchronized (this) {
+		
+		invalidate("all");
+		
 		EntityManager em = EMFService.get().createEntityManager();
 		try{
 			em.getTransaction().begin();
@@ -131,6 +176,9 @@ public void addECAlbum(String name, String coverurl, String picasaurl,String fee
 
 public void removeECAlbum(long id) { synchronized (this) {
 	try {
+		
+		invalidate("all");
+		
 		EntityManager em = EMFService.get().createEntityManager();
 		em.getTransaction().begin();
 		ECAlbum ecAlbum = em.find(ECAlbum.class, id);
@@ -144,6 +192,9 @@ public void removeECAlbum(long id) { synchronized (this) {
 	
 public void removeAlbumCascade(String albumname, String id){ synchronized (this) {
 	try {	
+		
+		invalidate("all");
+		
 		EntityManager em = EMFService.get().createEntityManager();	
 		em.getTransaction().begin();
 		Query q = em
@@ -167,6 +218,8 @@ public void removeAlbumCascade(String albumname, String id){ synchronized (this)
 public void clearAlbum(String albumname) { synchronized (this) {
 try {
 
+	invalidate("all");
+	
 	EntityManager em = EMFService.get().createEntityManager();	
 	em.getTransaction().begin();
 	Query q = em
@@ -222,6 +275,20 @@ public void addECPhoto(String photourl, String notes, String albumname ) {
 
 public List<ECPhoto> getECPhotos(String albumname) { 
 	synchronized (this) {
+		
+		String key = "getPhotos" + albumname;
+		LinkedList<ECPhoto> serList = null;
+		
+		MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
+	    syncCache.setErrorHandler(ErrorHandlers.getConsistentLogAndContinue(Level.INFO));
+	    serList = (LinkedList<ECPhoto>) syncCache.get(key);
+	    
+	    if (serList != null) {
+	        return serList;
+	      }
+
+		
+		
 		List<ECPhoto> ecPhotos = null;
 		try {
 			EntityManager em = EMFService.get().createEntityManager();
@@ -234,12 +301,26 @@ public List<ECPhoto> getECPhotos(String albumname) {
 		} catch (Exception e){
 			System.out.println(e.getMessage());
 		}	
+		
+		
+
+		serList = new LinkedList<ECPhoto>();
+		for (ECPhoto p:ecPhotos) {
+			serList.add(p);
+		}
+		syncCache.put(key, serList); // populate cache
+
+		
+		
 		return ecPhotos;
 	}
 }
 
 public void removeECPhoto(long id) { 
 	synchronized (this) {
+		
+		invalidate("all");
+		
 		EntityManager em = null;
 		try {
 			em = EMFService.get().createEntityManager();

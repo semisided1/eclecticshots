@@ -1,6 +1,8 @@
 package com.eclecticshots.model;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +15,11 @@ import javax.persistence.Id;
  * 
  */
 @Entity
-public class ECPhoto {
+public class ECPhoto implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4374168083777299054L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

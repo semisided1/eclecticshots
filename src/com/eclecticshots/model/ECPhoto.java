@@ -32,7 +32,7 @@ public class ECPhoto implements Serializable {
 		this.notes = notes;
 		this.albumname = albumname;
 	}
-	
+	/*
 	public String toString() {
 		String out = "<ecphoto><id>" + this.id + "</id>" +
 		"<photourl>" + this.photourl + "</photourl>" +
@@ -40,6 +40,7 @@ public class ECPhoto implements Serializable {
 		"<albumname>" + this.albumname + "</albumname></ecphoto>";
 		return out;
 	}
+	*/
 	
 	public Long getId() {
 		return this.id;

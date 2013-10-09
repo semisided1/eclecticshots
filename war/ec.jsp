@@ -12,7 +12,7 @@
 <meta name="description" content="Eclectic Shots"/>
 <meta name="keywords" content="Calgary, Photography, Shelly Priest, eclecticshots.com, designr8.com"/>
 
-<link href="./css/eclecticshots.css" rel="stylesheet"/>
+
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +23,7 @@
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
     
+<link href="./css/eclecticshots.css" rel="stylesheet"/>
 
 <title>Eclectic Shots</title>
 </head>

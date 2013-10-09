@@ -38,7 +38,7 @@ public class ECAlbum implements Serializable {
 		this.feedurl = feedurl;
 		this.aorder = aorder;
 	}
-	
+	/*
 	public String toString(){
 		String out = "<ecalbum><id>" + this.id + "</id>" +
 		"<name>" + this.name + "</name>" + 
@@ -48,7 +48,7 @@ public class ECAlbum implements Serializable {
 		"</ecalbum>";
 		return out;
 	}
-
+*/
 	public String getPicasaurl() {
 		return this.picasaurl;
 	}

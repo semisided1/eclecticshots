@@ -1,3 +1,21 @@
+body {
+	background-image: url('/img/download00.png');
+	color : #7da6c7;
+}
+
+h1 h2 p {
+	color : #7da6c7;
+}
+
+a {
+	color: #475e70;
+}
+
+a:hover {
+	color : white;
+	text-decoration: none;
+}
+
 ul {
 	list-style-type: none;
 	padding: 15px;
